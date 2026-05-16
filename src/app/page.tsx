@@ -259,8 +259,8 @@ export default function HomePage() {
           {/* Subtle background glow inside sidebar */}
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
           
-          {/* Mobile Top Controls (Socials + Menu Toggle) located at the top right of the profile area */}
-          <div className="md:hidden absolute top-6 right-4 sm:top-8 sm:right-8 z-50 flex items-center gap-1.5 sm:gap-3">
+          {/* Mobile Top Controls (Socials + Menu Toggle) located securely above the profile area */}
+          <div className="md:hidden flex justify-end items-center gap-1.5 sm:gap-3 mb-6 relative z-50 w-full">
             <a href="#" className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-900/80 flex items-center justify-center text-slate-400 hover:text-white hover:-translate-y-0.5 hover:bg-gradient-to-br hover:from-fuchsia-600 hover:to-pink-600 transition-all border border-white/5 shadow-xl group">
               <Instagram size={16} className="sm:w-[18px] sm:h-[18px] group-hover:scale-110 transition-transform" />
             </a>
