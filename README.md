@@ -30,7 +30,7 @@ A premium, curated online art gallery and portfolio showcasing diverse mediums i
 ## 📁 Project Structure
 
 ```text
-d:\art_gallery\
+canvas-gallery/
 ├── .github/workflows/   # CI/CD pipelines (e.g., deploy.yml for GitHub Pages)
 ├── public/
 │   ├── images/          # 🖼️ PLACE ALL YOUR ARTWORK IMAGES HERE
