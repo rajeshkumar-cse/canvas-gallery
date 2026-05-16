@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://thecanvasfable.com/sitemap.xml
