@@ -35,10 +35,10 @@ export default function HomePage() {
           
           <div className="space-y-8 text-zinc-300 text-lg leading-relaxed">
             <p>
-              I am a contemporary visual artist whose work explores the intersection of raw emotion and the natural world. With over a decade of experience experimenting with diverse mediums, my portfolio is a testament to the endless possibilities of visual storytelling.
+              I am <strong className="text-white">Hema Rajpoot</strong>, the founder of The Canvas Fable and a versatile visual artist. By education, I am an Electronics Engineer, and I spent the early part of my career working in the IT sector as a Quality Auditor. However, the canvas was where my true calling always lived.
             </p>
             <p>
-              My journey began with simple pencil sketches and evolved into a deep passion for <strong className="text-white">oil, acrylic, and charcoal</strong>. I believe that art should not just be seen, but felt. Each piece I create is an invitation into a unique fable, carefully constructed layer by layer.
+              Driven by a profound, lifelong passion for fine arts, I chose to pivot and fully pursue my artistic career. Today, I dedicate myself to exploring the endless possibilities of visual storytelling. Whether it is through the rich textures of <strong className="text-white">oil and acrylics</strong>, the raw intensity of <strong className="text-white">charcoal and sketching</strong>, or the fluidity of <strong className="text-white">watercolor</strong>, I believe art should not just be seen, but deeply felt.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/10">
@@ -211,13 +211,13 @@ export default function HomePage() {
             <h1 className="text-5xl font-black tracking-tighter text-white mb-3 text-center md:text-left">
               The Canvas Fable
             </h1>
-            <p className="text-xl text-zinc-400 mb-8 font-medium text-center md:text-left tracking-wide uppercase text-sm">Visual Artist & Creator</p>
+            <p className="text-xl text-zinc-400 mb-8 font-medium text-center md:text-left tracking-wide uppercase text-sm">By Hema Rajpoot</p>
 
             <div className="h-px w-full bg-gradient-to-r from-white/20 to-transparent mb-10" />
 
             <div className="space-y-6 mb-14 flex-grow">
               <p className="text-zinc-300 leading-loose text-base lg:text-lg text-center md:text-left">
-                Welcome to my creative universe. I specialize in bringing imagination to life through <strong className="text-white font-bold">oil paintings, acrylics, charcoal, sketching, and watercolor</strong>. 
+                From Electronics Engineer and IT Quality Auditor to versatile visual artist. I specialize in bringing imagination to life through <strong className="text-white font-bold">oil paintings, acrylics, charcoal, sketching, and watercolor</strong>. 
               </p>
               <p className="text-zinc-300 leading-loose text-base lg:text-lg text-center md:text-left italic text-zinc-400">
                 "Every stroke tells a story, and every canvas holds a fable waiting to be discovered."
