@@ -112,6 +112,17 @@ Vercel is the creator of Next.js and offers a seamless hosting experience if you
 
 ---
 
+## 🚫 Ignored Files & Security (.gitignore)
+
+To keep the repository clean, lightweight, and secure, certain files and folders are explicitly ignored from Git version control via the `.gitignore` file. **Do not force commit these files:**
+
+- **`node_modules/`**: Contains thousands of heavy dependency files. These are automatically regenerated using `npm install`.
+- **`.next/` & `out/`**: Compiled build outputs generated locally when you run `npm run dev` or `npm run build`. GitHub Actions generates these fresh during deployment.
+- **`.env` & `.env.local`**: Environment variable files. (You don't currently need these, but if you ever add private API keys, they will stay safe on your machine and won't upload to GitHub).
+- **`.DS_Store` & `Thumbs.db`**: Hidden files created automatically by macOS and Windows.
+
+---
+
 ## 📄 License
 
 All artworks, designs, and content displayed on this website are the property of Hema Rajpoot and The Canvas Fable. Unauthorized use, reproduction, or distribution is strictly prohibited.
