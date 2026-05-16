@@ -61,7 +61,7 @@ export default function HomePage() {
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-500" />
             <h3 className="text-3xl font-bold text-white mb-4">Ready to start a project?</h3>
             <p className="text-zinc-400 mb-8 max-w-xl mx-auto">Send me an email with your requirements, reference photos, and preferred timeline, and let's create a fable together.</p>
-            <a href="mailto:contact@thecanvasfable.com" className="inline-block bg-white text-black font-bold py-4 px-10 rounded-2xl hover:bg-zinc-200 transition-all transform active:scale-95 shadow-lg">
+            <a href="mailto:hema.r.rajpoot@gmail.com" className="inline-block bg-white text-black font-bold py-4 px-10 rounded-2xl hover:bg-zinc-200 transition-all transform active:scale-95 shadow-lg">
               Request a Commission
             </a>
           </div>
@@ -265,11 +265,11 @@ export default function HomePage() {
             </div>
 
             <div className="space-y-4 w-full">
-              <a href="mailto:contact@thecanvasfable.com" className="flex items-center gap-5 text-zinc-400 hover:text-white transition-all p-4 rounded-2xl hover:bg-white/5 border border-transparent hover:border-white/10 group">
+              <a href="mailto:hema.r.rajpoot@gmail.com" className="flex items-center gap-5 text-zinc-400 hover:text-white transition-all p-4 rounded-2xl hover:bg-white/5 border border-transparent hover:border-white/10 group">
                 <div className="bg-zinc-900/80 p-3 rounded-xl group-hover:bg-white group-hover:text-black transition-colors shadow-inner">
                   <Mail size={22} />
                 </div>
-                <span className="font-semibold text-base">contact@thecanvasfable.com</span>
+                <span className="font-semibold text-base">hema.r.rajpoot@gmail.com</span>
               </a>
               <div className="flex items-center gap-5 text-zinc-400 p-4 rounded-2xl">
                 <div className="bg-zinc-900/80 p-3 rounded-xl shadow-inner">
