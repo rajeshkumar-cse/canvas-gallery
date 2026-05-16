@@ -282,7 +282,7 @@ export default function HomePage() {
                 <div className="bg-slate-900/80 p-3 rounded-xl shadow-inner border border-white/5">
                   <MapPin size={22} className="text-pink-400" />
                 </div>
-                <span className="font-semibold text-base">New York, NY</span>
+                <span className="font-semibold text-base">Delhi</span>
               </div>
             </div>
 
