@@ -259,13 +259,19 @@ export default function HomePage() {
           {/* Subtle background glow inside sidebar */}
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
           
-          {/* Mobile Menu Toggle located at the top right of the profile area */}
-          <div className="md:hidden absolute top-8 right-8 z-50">
+          {/* Mobile Top Controls (Socials + Menu Toggle) located at the top right of the profile area */}
+          <div className="md:hidden absolute top-8 right-6 sm:right-8 z-50 flex items-center gap-2 sm:gap-3">
+            <a href="#" className="w-10 h-10 rounded-xl bg-slate-900/80 flex items-center justify-center text-slate-400 hover:text-white hover:-translate-y-0.5 hover:bg-gradient-to-br hover:from-fuchsia-600 hover:to-pink-600 transition-all border border-white/5 shadow-xl group">
+              <Instagram size={18} className="group-hover:scale-110 transition-transform" />
+            </a>
+            <a href="#" className="w-10 h-10 rounded-xl bg-slate-900/80 flex items-center justify-center text-slate-400 hover:text-white hover:-translate-y-0.5 hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 transition-all border border-white/5 shadow-xl group">
+              <Facebook size={18} className="group-hover:scale-110 transition-transform" />
+            </a>
             <button 
-              className="text-slate-300 hover:text-white p-2.5 rounded-xl bg-slate-900/80 border border-white/10 shadow-xl backdrop-blur-md transition-all active:scale-95"
+              className="text-slate-300 hover:text-white p-2.5 rounded-xl bg-slate-900/80 border border-white/10 shadow-xl backdrop-blur-md transition-all active:scale-95 ml-1"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
             {isMobileMenuOpen && (
