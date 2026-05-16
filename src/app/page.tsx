@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 import Image from 'next/image';
-import { Mail, Instagram, Twitter, Palette, MapPin } from 'lucide-react';
+import { Mail, Instagram, Twitter, Palette, MapPin, Calendar, Award, Star } from 'lucide-react';
 
 // Import the new data structure
 import { galleryData } from '@/data/artworkData';
@@ -25,8 +25,84 @@ interface Category {
 export default function HomePage() {
   const [lightboxItem, setLightboxItem] = useState<Photo | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
+  const [activeTab, setActiveTab] = useState<'gallery' | 'about' | 'exhibitions'>('gallery');
 
   const renderContent = () => {
+    if (activeTab === 'about') {
+      return (
+        <div className="animate-fade-in max-w-4xl">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-8">About the Artist</h2>
+          
+          <div className="space-y-8 text-zinc-300 text-lg leading-relaxed">
+            <p>
+              I am a contemporary visual artist whose work explores the intersection of raw emotion and the natural world. With over a decade of experience experimenting with diverse mediums, my portfolio is a testament to the endless possibilities of visual storytelling.
+            </p>
+            <p>
+              My journey began with simple pencil sketches and evolved into a deep passion for <strong className="text-white">oil, acrylic, and charcoal</strong>. I believe that art should not just be seen, but felt. Each piece I create is an invitation into a unique fable, carefully constructed layer by layer.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/10">
+              <div className="bg-zinc-900/50 p-6 rounded-2xl border border-white/5">
+                <Palette className="text-white mb-4" size={32} />
+                <h3 className="text-xl font-bold text-white mb-2">Versatile Mediums</h3>
+                <p className="text-sm text-zinc-400">Mastery in Oil, Acrylic, Watercolor, and Charcoal.</p>
+              </div>
+              <div className="bg-zinc-900/50 p-6 rounded-2xl border border-white/5">
+                <Star className="text-white mb-4" size={32} />
+                <h3 className="text-xl font-bold text-white mb-2">Unique Style</h3>
+                <p className="text-sm text-zinc-400">A blend of abstract expressionism and contemporary realism.</p>
+              </div>
+              <div className="bg-zinc-900/50 p-6 rounded-2xl border border-white/5">
+                <Award className="text-white mb-4" size={32} />
+                <h3 className="text-xl font-bold text-white mb-2">Recognized Work</h3>
+                <p className="text-sm text-zinc-400">Featured in multiple national galleries and private collections.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (activeTab === 'exhibitions') {
+      const dummyExhibitions = [
+        { year: "2026", title: "Whispers of the Canvas", location: "Modern Art Gallery, NY", status: "Upcoming" },
+        { year: "2025", title: "Shadows & Light", location: "Downtown Studio, Chicago", status: "Past" },
+        { year: "2024", title: "The Acrylic Era", location: "Westside Gallery, LA", status: "Past" },
+        { year: "2023", title: "Charcoal Beginnings", location: "Local Art Hub, NY", status: "Past" },
+      ];
+
+      return (
+        <div className="animate-fade-in max-w-4xl">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-8">Exhibitions</h2>
+          <p className="text-zinc-400 text-lg mb-10">A timeline of my solo and group showcases.</p>
+
+          <div className="space-y-6">
+            {dummyExhibitions.map((exhibition, index) => (
+              <div key={index} className="flex flex-col sm:flex-row gap-4 sm:gap-8 p-6 bg-zinc-900/40 rounded-2xl border border-white/5 hover:border-white/20 transition-colors">
+                <div className="sm:w-24 shrink-0">
+                  <span className="text-2xl font-bold text-white/50">{exhibition.year}</span>
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-3">
+                    {exhibition.title}
+                    {exhibition.status === "Upcoming" && (
+                      <span className="text-xs font-bold px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full uppercase tracking-wider">
+                        Upcoming
+                      </span>
+                    )}
+                  </h3>
+                  <div className="flex items-center gap-2 text-zinc-400">
+                    <MapPin size={16} />
+                    <span>{exhibition.location}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
     if (selectedCategory) {
       return (
         <div className="animate-fade-in">
@@ -117,7 +193,7 @@ export default function HomePage() {
       <div className="flex flex-col md:flex-row min-h-screen">
         
         {/* Sidebar Profile Area */}
-        <aside className="w-full md:w-[400px] lg:w-[460px] bg-black/40 backdrop-blur-3xl border-r border-white/5 p-8 md:p-12 lg:p-16 flex flex-col md:fixed md:h-screen z-10 overflow-y-auto relative">
+        <aside className="w-full md:w-[400px] lg:w-[460px] bg-black/40 backdrop-blur-3xl border-r border-white/5 p-8 md:p-12 lg:p-16 flex flex-col md:fixed md:h-screen z-10 overflow-y-auto relative custom-scrollbar">
           {/* Subtle background glow */}
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
           
@@ -175,28 +251,50 @@ export default function HomePage() {
         </aside>
 
         {/* Main Content Area */}
-        <main className="flex-1 md:ml-[400px] lg:ml-[460px] p-6 md:p-12 lg:p-20 relative">
+        <main className="flex-1 md:ml-[400px] lg:ml-[460px] p-6 md:p-12 lg:p-20 relative min-h-screen flex flex-col">
           
           {/* Subtle background effects */}
           <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-zinc-800/20 rounded-full blur-[120px] pointer-events-none" />
           
           {/* Top Navigation / Links Area */}
-          <nav className="flex justify-center md:justify-end gap-8 mb-20 border-b border-white/10 pb-8 relative z-10">
-            <a href="#" className="text-base font-bold text-zinc-300 hover:text-white transition-colors relative group py-2">
-              Gallery
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white scale-x-100 transition-transform origin-left" />
-            </a>
-            <a href="#" className="text-base font-bold text-zinc-400 hover:text-white transition-colors relative group py-2">
-              About
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-            </a>
-            <a href="#" className="text-base font-bold text-zinc-400 hover:text-white transition-colors relative group py-2">
-              Exhibitions
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-            </a>
+          <nav className="flex flex-col md:flex-row justify-between items-center gap-6 mb-16 border-b border-white/10 pb-6 relative z-10">
+            
+            {/* Attractive Element on the left (Circled area) */}
+            <div className="flex items-center gap-4 bg-zinc-900/50 border border-white/10 px-5 py-2.5 rounded-full shadow-lg">
+              <div className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+              </div>
+              <span className="text-sm font-bold text-emerald-400 tracking-widest uppercase">Available for Commissions</span>
+            </div>
+
+            {/* Navigation Tabs */}
+            <div className="flex gap-8">
+              <button 
+                onClick={() => {setActiveTab('gallery'); setSelectedCategory(null);}} 
+                className={`text-base font-bold transition-colors relative group py-2 ${activeTab === 'gallery' ? 'text-white' : 'text-zinc-500 hover:text-white'}`}
+              >
+                Gallery
+                <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-white transition-transform origin-left ${activeTab === 'gallery' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+              </button>
+              <button 
+                onClick={() => {setActiveTab('about'); setSelectedCategory(null);}} 
+                className={`text-base font-bold transition-colors relative group py-2 ${activeTab === 'about' ? 'text-white' : 'text-zinc-500 hover:text-white'}`}
+              >
+                About
+                <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-white transition-transform origin-left ${activeTab === 'about' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+              </button>
+              <button 
+                onClick={() => {setActiveTab('exhibitions'); setSelectedCategory(null);}} 
+                className={`text-base font-bold transition-colors relative group py-2 ${activeTab === 'exhibitions' ? 'text-white' : 'text-zinc-500 hover:text-white'}`}
+              >
+                Exhibitions
+                <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-white transition-transform origin-left ${activeTab === 'exhibitions' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+              </button>
+            </div>
           </nav>
 
-          <div className="relative z-10">
+          <div className="relative z-10 flex-grow">
             {renderContent()}
           </div>
 
