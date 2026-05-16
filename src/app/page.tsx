@@ -273,7 +273,7 @@ export default function HomePage() {
                 {['gallery', 'about', 'exhibitions', 'commissions'].map((tab) => (
                   <button 
                     key={tab}
-                    onClick={() => handleTabChange(tab as any)} 
+                    onClick={() => handleTabChange(tab as 'gallery' | 'about' | 'exhibitions' | 'commissions')} 
                     className={`w-full text-left text-sm font-bold p-3 rounded-xl capitalize transition-all ${activeTab === tab ? 'bg-fuchsia-900/40 text-white border border-fuchsia-500/30' : 'text-slate-400 hover:bg-white/5 hover:text-white'}`}
                   >
                     {tab === 'commissions' ? 'Commissions' : tab}
