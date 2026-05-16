@@ -260,18 +260,18 @@ export default function HomePage() {
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
           
           {/* Mobile Top Controls (Socials + Menu Toggle) located at the top right of the profile area */}
-          <div className="md:hidden absolute top-8 right-6 sm:right-8 z-50 flex items-center gap-2 sm:gap-3">
-            <a href="#" className="w-10 h-10 rounded-xl bg-slate-900/80 flex items-center justify-center text-slate-400 hover:text-white hover:-translate-y-0.5 hover:bg-gradient-to-br hover:from-fuchsia-600 hover:to-pink-600 transition-all border border-white/5 shadow-xl group">
-              <Instagram size={18} className="group-hover:scale-110 transition-transform" />
+          <div className="md:hidden absolute top-6 right-4 sm:top-8 sm:right-8 z-50 flex items-center gap-1.5 sm:gap-3">
+            <a href="#" className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-900/80 flex items-center justify-center text-slate-400 hover:text-white hover:-translate-y-0.5 hover:bg-gradient-to-br hover:from-fuchsia-600 hover:to-pink-600 transition-all border border-white/5 shadow-xl group">
+              <Instagram size={16} className="sm:w-[18px] sm:h-[18px] group-hover:scale-110 transition-transform" />
             </a>
-            <a href="#" className="w-10 h-10 rounded-xl bg-slate-900/80 flex items-center justify-center text-slate-400 hover:text-white hover:-translate-y-0.5 hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 transition-all border border-white/5 shadow-xl group">
-              <Facebook size={18} className="group-hover:scale-110 transition-transform" />
+            <a href="#" className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-900/80 flex items-center justify-center text-slate-400 hover:text-white hover:-translate-y-0.5 hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 transition-all border border-white/5 shadow-xl group">
+              <Facebook size={16} className="sm:w-[18px] sm:h-[18px] group-hover:scale-110 transition-transform" />
             </a>
             <button 
-              className="text-slate-300 hover:text-white p-2.5 rounded-xl bg-slate-900/80 border border-white/10 shadow-xl backdrop-blur-md transition-all active:scale-95 ml-1"
+              className="text-slate-300 hover:text-white p-2 sm:p-2.5 rounded-xl bg-slate-900/80 border border-white/10 shadow-xl backdrop-blur-md transition-all active:scale-95 ml-0.5 sm:ml-1"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+              {isMobileMenuOpen ? <X size={22} className="sm:w-[26px] sm:h-[26px]" /> : <Menu size={22} className="sm:w-[26px] sm:h-[26px]" />}
             </button>
 
             {isMobileMenuOpen && (
@@ -291,7 +291,7 @@ export default function HomePage() {
           
           <div className="flex-grow flex flex-col relative z-10">
             {/* Artist Avatar / Logo placeholder */}
-            <div className="w-36 h-36 lg:w-48 lg:h-48 rounded-full overflow-hidden mb-10 border-4 border-white/10 relative shadow-2xl shrink-0 mx-auto md:mx-0 transition-transform duration-500 hover:scale-105 hover:border-fuchsia-500/40">
+            <div className="w-28 h-28 sm:w-36 sm:h-36 lg:w-48 lg:h-48 mt-4 sm:mt-0 rounded-full overflow-hidden mb-10 border-4 border-white/10 relative shadow-2xl shrink-0 mx-auto md:mx-0 transition-transform duration-500 hover:scale-105 hover:border-fuchsia-500/40">
               <Image 
                 src="https://picsum.photos/seed/artist/600/600" 
                 alt="Artist Profile" 
