@@ -272,11 +272,11 @@ export default function HomePage() {
             </div>
 
             <div className="space-y-4 w-full">
-              <a href="mailto:hema.r.rajpoot@gmail.com" className="flex items-center gap-5 text-slate-400 hover:text-white transition-all p-4 rounded-2xl hover:bg-white/5 border border-transparent hover:border-fuchsia-500/30 group">
-                <div className="bg-slate-900/80 p-3 rounded-xl group-hover:bg-gradient-to-br group-hover:from-fuchsia-600 group-hover:to-pink-600 group-hover:text-white transition-all shadow-inner border border-white/5">
+              <a href="mailto:hema.r.rajpoot@gmail.com" className="flex items-center gap-5 text-slate-400 hover:text-white transition-all p-4 rounded-2xl hover:bg-white/5 border border-transparent hover:border-fuchsia-500/30 group overflow-hidden">
+                <div className="bg-slate-900/80 p-3 rounded-xl group-hover:bg-gradient-to-br group-hover:from-fuchsia-600 group-hover:to-pink-600 group-hover:text-white transition-all shadow-inner border border-white/5 shrink-0">
                   <Mail size={22} />
                 </div>
-                <span className="font-semibold text-base break-all">hema.r.rajpoot@gmail.com</span>
+                <span className="font-semibold text-sm lg:text-base truncate">hema.r.rajpoot@gmail.com</span>
               </a>
               <div className="flex items-center gap-5 text-slate-400 p-4 rounded-2xl">
                 <div className="bg-slate-900/80 p-3 rounded-xl shadow-inner border border-white/5">
