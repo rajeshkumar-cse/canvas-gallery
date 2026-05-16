@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 import Image from 'next/image';
-import { Mail, Instagram, Twitter, Palette, MapPin, Calendar, Award, Star } from 'lucide-react';
+import { Mail, Instagram, Facebook, Palette, MapPin, Calendar, Award, Star } from 'lucide-react';
 
 // Import the new data structure
 import { galleryData } from '@/data/artworkData';
@@ -290,8 +290,8 @@ export default function HomePage() {
               <a href="#" className="w-14 h-14 rounded-2xl bg-slate-900/80 flex items-center justify-center text-slate-400 hover:text-white hover:-translate-y-1 hover:bg-gradient-to-br hover:from-fuchsia-600 hover:to-pink-600 transition-all duration-300 border border-white/5 shadow-xl group">
                 <Instagram size={24} className="group-hover:scale-110 transition-transform" />
               </a>
-              <a href="#" className="w-14 h-14 rounded-2xl bg-slate-900/80 flex items-center justify-center text-slate-400 hover:text-white hover:-translate-y-1 hover:bg-gradient-to-br hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 border border-white/5 shadow-xl group">
-                <Twitter size={24} className="group-hover:scale-110 transition-transform" />
+              <a href="#" className="w-14 h-14 rounded-2xl bg-slate-900/80 flex items-center justify-center text-slate-400 hover:text-white hover:-translate-y-1 hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 transition-all duration-300 border border-white/5 shadow-xl group">
+                <Facebook size={24} className="group-hover:scale-110 transition-transform" />
               </a>
             </div>
           </div>
