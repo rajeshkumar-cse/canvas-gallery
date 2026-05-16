@@ -25,9 +25,49 @@ interface Category {
 export default function HomePage() {
   const [lightboxItem, setLightboxItem] = useState<Photo | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
-  const [activeTab, setActiveTab] = useState<'gallery' | 'about' | 'exhibitions'>('gallery');
+  const [activeTab, setActiveTab] = useState<'gallery' | 'about' | 'exhibitions' | 'commissions'>('gallery');
 
   const renderContent = () => {
+    if (activeTab === 'commissions') {
+      const commissionRates = [
+        { type: "A4 Painting", medium: "Oil / Acrylic", price: "₹5,000", desc: "Detailed, full-color painting." },
+        { type: "A3 Painting", medium: "Oil / Acrylic", price: "₹10,000", desc: "Larger, immersive canvas." },
+        { type: "A4 Sketch", medium: "Charcoal / Pencil", price: "₹3,000", desc: "Classic black and white portrait." },
+        { type: "A3 Sketch", medium: "Charcoal / Pencil", price: "₹6,000", desc: "Highly detailed, large sketch." },
+        { type: "Custom Canvas", medium: "Mixed / Watercolors", price: "Contact for Quote", desc: "Tailored to your specific needs." },
+      ];
+
+      return (
+        <div className="animate-fade-in max-w-4xl">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-8">Commission Rates</h2>
+          <p className="text-zinc-400 text-lg mb-10">Bring your vision to life. Review the baseline pricing below, or contact me directly for custom sizes and unique requests.</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {commissionRates.map((rate, index) => (
+              <div key={index} className="p-8 bg-zinc-900/40 rounded-3xl border border-white/5 hover:border-emerald-500/40 transition-colors flex flex-col justify-between group">
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-emerald-400 transition-colors">{rate.type}</h3>
+                  <p className="text-sm font-semibold tracking-wide text-zinc-500 uppercase mb-4">{rate.medium}</p>
+                  <p className="text-zinc-400 mb-6">{rate.desc}</p>
+                </div>
+                <div className="text-3xl font-black text-white">
+                  {rate.price}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 p-10 bg-gradient-to-br from-zinc-900 to-zinc-900/40 rounded-3xl border border-white/10 text-center shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-500" />
+            <h3 className="text-3xl font-bold text-white mb-4">Ready to start a project?</h3>
+            <p className="text-zinc-400 mb-8 max-w-xl mx-auto">Send me an email with your requirements, reference photos, and preferred timeline, and let's create a fable together.</p>
+            <a href="mailto:contact@thecanvasfable.com" className="inline-block bg-white text-black font-bold py-4 px-10 rounded-2xl hover:bg-zinc-200 transition-all transform active:scale-95 shadow-lg">
+              Request a Commission
+            </a>
+          </div>
+        </div>
+      );
+    }
     if (activeTab === 'about') {
       return (
         <div className="animate-fade-in max-w-4xl">
@@ -260,13 +300,16 @@ export default function HomePage() {
           <nav className="flex flex-col md:flex-row justify-between items-center gap-6 mb-16 border-b border-white/10 pb-6 relative z-10">
             
             {/* Attractive Element on the left (Circled area) */}
-            <div className="flex items-center gap-4 bg-zinc-900/50 border border-white/10 px-5 py-2.5 rounded-full shadow-lg">
+            <button 
+              onClick={() => {setActiveTab('commissions'); setSelectedCategory(null);}} 
+              className="flex items-center gap-4 bg-zinc-900/50 border border-emerald-500/30 hover:border-emerald-500/70 hover:bg-zinc-800 px-5 py-2.5 rounded-full shadow-lg transition-all group"
+            >
               <div className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 group-hover:bg-emerald-400 transition-colors"></span>
               </div>
-              <span className="text-sm font-bold text-emerald-400 tracking-widest uppercase">Available for Commissions</span>
-            </div>
+              <span className="text-sm font-bold text-emerald-400 group-hover:text-emerald-300 tracking-widest uppercase transition-colors">Available for Commissions</span>
+            </button>
 
             {/* Navigation Tabs */}
             <div className="flex gap-8">
