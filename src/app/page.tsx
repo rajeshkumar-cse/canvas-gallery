@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 import Image from 'next/image';
-import { Mail, Instagram, Facebook, Palette, MapPin, Calendar, Award, Star } from 'lucide-react';
+import { Mail, Instagram, Facebook, Palette, MapPin, Calendar, Award, Star, Menu, X } from 'lucide-react';
 
 // Import the new data structure
 import { galleryData } from '@/data/artworkData';
@@ -26,6 +26,7 @@ export default function HomePage() {
   const [lightboxItem, setLightboxItem] = useState<Photo | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [activeTab, setActiveTab] = useState<'gallery' | 'about' | 'exhibitions' | 'commissions'>('gallery');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const renderContent = () => {
     if (activeTab === 'commissions') {
@@ -301,44 +302,69 @@ export default function HomePage() {
         <main className="flex-1 md:ml-[400px] lg:ml-[460px] p-6 md:p-12 lg:p-20 relative min-h-screen flex flex-col z-10">
           
           {/* Top Navigation / Links Area */}
-          <nav className="flex flex-col md:flex-row justify-between items-center gap-6 mb-16 border-b border-white/10 pb-6 relative z-20">
-            
-            {/* Attractive Element on the left */}
-            <button 
-              onClick={() => {setActiveTab('commissions'); setSelectedCategory(null);}} 
-              className="flex items-center gap-4 bg-slate-900/60 backdrop-blur-md border border-fuchsia-500/30 hover:border-fuchsia-500/70 hover:bg-slate-800/80 px-6 py-3 rounded-full shadow-lg shadow-fuchsia-500/10 transition-all group"
-            >
-              <div className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-fuchsia-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-fuchsia-500 group-hover:bg-fuchsia-400 transition-colors"></span>
-              </div>
-              <span className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-300 to-pink-300 group-hover:from-white group-hover:to-white tracking-widest uppercase transition-all">Available for Commissions</span>
-            </button>
+          <nav className="mb-12 border-b border-white/10 pb-4 md:pb-6 relative z-50">
+            <div className="flex justify-between items-center gap-4">
+              
+              {/* Attractive Element on the left */}
+              <button 
+                onClick={() => {setActiveTab('commissions'); setSelectedCategory(null); setIsMobileMenuOpen(false);}} 
+                className="flex items-center gap-3 sm:gap-4 bg-slate-900/60 backdrop-blur-md border border-fuchsia-500/30 hover:border-fuchsia-500/70 hover:bg-slate-800/80 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-lg shadow-fuchsia-500/10 transition-all group shrink-0"
+              >
+                <div className="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-fuchsia-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-full w-full bg-fuchsia-500 group-hover:bg-fuchsia-400 transition-colors"></span>
+                </div>
+                <span className="text-[10px] sm:text-xs md:text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-300 to-pink-300 group-hover:from-white group-hover:to-white tracking-widest uppercase transition-all whitespace-nowrap">Available for Commissions</span>
+              </button>
 
-            {/* Navigation Tabs */}
-            <div className="flex gap-8">
+              {/* Mobile Menu Toggle */}
               <button 
-                onClick={() => {setActiveTab('gallery'); setSelectedCategory(null);}} 
-                className={`text-base font-bold transition-colors relative group py-2 ${activeTab === 'gallery' ? 'text-white' : 'text-slate-400 hover:text-white'}`}
+                className="md:hidden text-slate-300 hover:text-white p-2 rounded-xl bg-white/5 border border-white/10 transition-colors"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
-                Gallery
-                <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-fuchsia-500 to-amber-500 transition-transform origin-left ${activeTab === 'gallery' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
-              <button 
-                onClick={() => {setActiveTab('about'); setSelectedCategory(null);}} 
-                className={`text-base font-bold transition-colors relative group py-2 ${activeTab === 'about' ? 'text-white' : 'text-slate-400 hover:text-white'}`}
-              >
-                About
-                <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-fuchsia-500 to-amber-500 transition-transform origin-left ${activeTab === 'about' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
-              </button>
-              <button 
-                onClick={() => {setActiveTab('exhibitions'); setSelectedCategory(null);}} 
-                className={`text-base font-bold transition-colors relative group py-2 ${activeTab === 'exhibitions' ? 'text-white' : 'text-slate-400 hover:text-white'}`}
-              >
-                Exhibitions
-                <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-fuchsia-500 to-amber-500 transition-transform origin-left ${activeTab === 'exhibitions' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
-              </button>
+
+              {/* Desktop Navigation Tabs */}
+              <div className="hidden md:flex gap-8 items-center">
+                <button 
+                  onClick={() => {setActiveTab('gallery'); setSelectedCategory(null);}} 
+                  className={`text-base font-bold transition-colors relative group py-2 ${activeTab === 'gallery' ? 'text-white' : 'text-slate-400 hover:text-white'}`}
+                >
+                  Gallery
+                  <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-fuchsia-500 to-amber-500 transition-transform origin-left ${activeTab === 'gallery' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+                </button>
+                <button 
+                  onClick={() => {setActiveTab('about'); setSelectedCategory(null);}} 
+                  className={`text-base font-bold transition-colors relative group py-2 ${activeTab === 'about' ? 'text-white' : 'text-slate-400 hover:text-white'}`}
+                >
+                  About
+                  <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-fuchsia-500 to-amber-500 transition-transform origin-left ${activeTab === 'about' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+                </button>
+                <button 
+                  onClick={() => {setActiveTab('exhibitions'); setSelectedCategory(null);}} 
+                  className={`text-base font-bold transition-colors relative group py-2 ${activeTab === 'exhibitions' ? 'text-white' : 'text-slate-400 hover:text-white'}`}
+                >
+                  Exhibitions
+                  <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-fuchsia-500 to-amber-500 transition-transform origin-left ${activeTab === 'exhibitions' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+                </button>
+              </div>
             </div>
+
+            {/* Mobile Dropdown Menu */}
+            {isMobileMenuOpen && (
+              <div className="md:hidden absolute top-full left-0 right-0 mt-4 bg-slate-900/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-4 flex flex-col gap-2 shadow-2xl animate-fade-in origin-top">
+                {['gallery', 'about', 'exhibitions'].map((tab) => (
+                  <button 
+                    key={tab}
+                    onClick={() => {setActiveTab(tab as any); setSelectedCategory(null); setIsMobileMenuOpen(false);}} 
+                    className={`text-left text-lg font-bold p-4 rounded-xl capitalize transition-all ${activeTab === tab ? 'bg-fuchsia-900/30 text-white border border-fuchsia-500/20' : 'text-slate-400 hover:bg-white/5 hover:text-white'}`}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+            )}
           </nav>
 
           <div className="relative z-10 flex-grow">
