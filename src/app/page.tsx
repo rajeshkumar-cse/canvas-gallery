@@ -82,20 +82,20 @@ export default function HomePage() {
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/10">
-              <div className="bg-slate-900/40 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-fuchsia-500/30 transition-colors group">
+              <div className="bg-fuchsia-950/30 backdrop-blur-sm p-6 rounded-2xl border border-fuchsia-500/20 hover:border-fuchsia-500/50 hover:bg-fuchsia-900/40 hover:-translate-y-1 transition-all duration-300 group shadow-lg shadow-fuchsia-900/10 hover:shadow-fuchsia-500/20">
                 <Palette className="text-fuchsia-400 mb-4 group-hover:scale-110 transition-transform" size={32} />
                 <h3 className="text-xl font-bold text-white mb-2">Versatile Mediums</h3>
-                <p className="text-sm text-slate-400">Mastery in Oil, Acrylic, Watercolor, and Charcoal.</p>
+                <p className="text-sm text-fuchsia-200/70">Mastery in Oil, Acrylic, Watercolor, and Charcoal.</p>
               </div>
-              <div className="bg-slate-900/40 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-pink-500/30 transition-colors group">
+              <div className="bg-pink-950/30 backdrop-blur-sm p-6 rounded-2xl border border-pink-500/20 hover:border-pink-500/50 hover:bg-pink-900/40 hover:-translate-y-1 transition-all duration-300 group shadow-lg shadow-pink-900/10 hover:shadow-pink-500/20">
                 <Star className="text-pink-400 mb-4 group-hover:scale-110 transition-transform" size={32} />
                 <h3 className="text-xl font-bold text-white mb-2">Unique Style</h3>
-                <p className="text-sm text-slate-400">A blend of abstract expressionism and contemporary realism.</p>
+                <p className="text-sm text-pink-200/70">A blend of abstract expressionism and contemporary realism.</p>
               </div>
-              <div className="bg-slate-900/40 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-amber-500/30 transition-colors group">
+              <div className="bg-amber-950/30 backdrop-blur-sm p-6 rounded-2xl border border-amber-500/20 hover:border-amber-500/50 hover:bg-amber-900/40 hover:-translate-y-1 transition-all duration-300 group shadow-lg shadow-amber-900/10 hover:shadow-amber-500/20">
                 <Award className="text-amber-400 mb-4 group-hover:scale-110 transition-transform" size={32} />
                 <h3 className="text-xl font-bold text-white mb-2">Recognized Work</h3>
-                <p className="text-sm text-slate-400">Featured in multiple national galleries and private collections.</p>
+                <p className="text-sm text-amber-200/70">Featured in multiple national galleries and private collections.</p>
               </div>
             </div>
           </div>
@@ -105,10 +105,10 @@ export default function HomePage() {
 
     if (activeTab === 'exhibitions') {
       const dummyExhibitions = [
-        { year: "2026", title: "Whispers of the Canvas", location: "Modern Art Gallery, NY", status: "Upcoming" },
-        { year: "2025", title: "Shadows & Light", location: "Downtown Studio, Chicago", status: "Past" },
-        { year: "2024", title: "The Acrylic Era", location: "Westside Gallery, LA", status: "Past" },
-        { year: "2023", title: "Charcoal Beginnings", location: "Local Art Hub, NY", status: "Past" },
+        { year: "2026", title: "Whispers of the Canvas", location: "Modern Art Gallery, NY", status: "Upcoming", bg: "bg-fuchsia-950/30", border: "border-fuchsia-500/20", hoverBg: "hover:bg-fuchsia-900/40 hover:border-fuchsia-500/50", text: "text-fuchsia-400", shadow: "hover:shadow-fuchsia-900/30" },
+        { year: "2025", title: "Shadows & Light", location: "Downtown Studio, Chicago", status: "Past", bg: "bg-blue-950/30", border: "border-blue-500/20", hoverBg: "hover:bg-blue-900/40 hover:border-blue-500/50", text: "text-blue-400", shadow: "hover:shadow-blue-900/30" },
+        { year: "2024", title: "The Acrylic Era", location: "Westside Gallery, LA", status: "Past", bg: "bg-emerald-950/30", border: "border-emerald-500/20", hoverBg: "hover:bg-emerald-900/40 hover:border-emerald-500/50", text: "text-emerald-400", shadow: "hover:shadow-emerald-900/30" },
+        { year: "2023", title: "Charcoal Beginnings", location: "Local Art Hub, NY", status: "Past", bg: "bg-amber-950/30", border: "border-amber-500/20", hoverBg: "hover:bg-amber-900/40 hover:border-amber-500/50", text: "text-amber-400", shadow: "hover:shadow-amber-900/30" },
       ];
 
       return (
@@ -118,9 +118,9 @@ export default function HomePage() {
 
           <div className="space-y-6">
             {dummyExhibitions.map((exhibition, index) => (
-              <div key={index} className="flex flex-col sm:flex-row gap-4 sm:gap-8 p-6 bg-slate-900/40 backdrop-blur-sm rounded-2xl border border-white/5 hover:border-fuchsia-500/40 transition-all hover:bg-slate-900/60 hover:shadow-xl group">
+              <div key={index} className={`flex flex-col sm:flex-row gap-4 sm:gap-8 p-6 ${exhibition.bg} backdrop-blur-sm rounded-2xl border ${exhibition.border} ${exhibition.hoverBg} transition-all duration-300 hover:shadow-xl ${exhibition.shadow} hover:-translate-y-1 group`}>
                 <div className="sm:w-24 shrink-0">
-                  <span className="text-2xl font-bold text-slate-500 group-hover:text-fuchsia-300 transition-colors">{exhibition.year}</span>
+                  <span className={`text-2xl font-bold ${exhibition.text} opacity-70 group-hover:opacity-100 transition-opacity`}>{exhibition.year}</span>
                 </div>
                 <div className="flex-grow">
                   <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-3">
@@ -132,7 +132,7 @@ export default function HomePage() {
                     )}
                   </h3>
                   <div className="flex items-center gap-2 text-slate-400">
-                    <MapPin size={16} className="text-pink-400" />
+                    <MapPin size={16} className={exhibition.text} />
                     <span>{exhibition.location}</span>
                   </div>
                 </div>
