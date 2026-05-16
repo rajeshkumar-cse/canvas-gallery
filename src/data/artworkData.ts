@@ -3,6 +3,17 @@
 
 export const galleryData = [
   {
+    id: "cat_featured",
+    title: "Featured Portrait",
+    description: "An intricate, highly detailed charcoal portrait study.",
+    coverImage: "/images/Test.jpeg",
+    tag: "featured",
+    photos: [
+      { id: "f1", title: "Portrait of a Girl", image: "/images/Test.jpeg" },
+      { id: "f2", title: "Study Reference & Artwork", image: "/images/Test.jpeg" },
+    ]
+  },
+  {
     id: "cat_oil",
     title: "Oil Painting Collection",
     description: "Rich, textured oil paintings full of depth and emotion.",
