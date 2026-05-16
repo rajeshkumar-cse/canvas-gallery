@@ -398,33 +398,33 @@ export default function HomePage() {
             {renderContent()}
           </div>
 
+          {/* Footer */}
+          <footer className="w-full border-t border-white/10 bg-slate-950/80 backdrop-blur-xl relative z-20 mt-16">
+            <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+              {/* Left - Tagline */}
+              <p className="text-slate-500 text-xs sm:text-sm font-medium tracking-wide flex items-center gap-1.5">
+                crafted with <Heart size={12} className="text-fuchsia-500 fill-fuchsia-500 inline-block animate-pulse" /> passion &amp; paint.
+              </p>
+
+              {/* Center - Social Icons */}
+              <div className="flex items-center gap-3">
+                <a href="#" className="w-8 h-8 rounded-lg bg-slate-900/80 flex items-center justify-center text-slate-500 hover:text-white hover:bg-gradient-to-br hover:from-fuchsia-600 hover:to-pink-600 transition-all border border-white/5 group">
+                  <Instagram size={14} className="group-hover:scale-110 transition-transform" />
+                </a>
+                <a href="#" className="w-8 h-8 rounded-lg bg-slate-900/80 flex items-center justify-center text-slate-500 hover:text-white hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 transition-all border border-white/5 group">
+                  <Facebook size={14} className="group-hover:scale-110 transition-transform" />
+                </a>
+              </div>
+
+              {/* Right - Copyright */}
+              <p className="text-slate-500 text-xs sm:text-sm font-medium tracking-wide">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">Hema Rajpoot</span> &copy; {new Date().getFullYear()}
+              </p>
+            </div>
+          </footer>
+
         </main>
       </div>
-
-      {/* Footer */}
-      <footer className="w-full md:ml-[400px] lg:ml-[460px] border-t border-white/10 bg-slate-950/80 backdrop-blur-xl relative z-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          {/* Left - Tagline */}
-          <p className="text-slate-500 text-xs sm:text-sm font-medium tracking-wide flex items-center gap-1.5">
-            crafted with <Heart size={12} className="text-fuchsia-500 fill-fuchsia-500 inline-block animate-pulse" /> passion & paint.
-          </p>
-
-          {/* Center - Social Icons */}
-          <div className="flex items-center gap-3">
-            <a href="#" className="w-8 h-8 rounded-lg bg-slate-900/80 flex items-center justify-center text-slate-500 hover:text-white hover:bg-gradient-to-br hover:from-fuchsia-600 hover:to-pink-600 transition-all border border-white/5 group">
-              <Instagram size={14} className="group-hover:scale-110 transition-transform" />
-            </a>
-            <a href="#" className="w-8 h-8 rounded-lg bg-slate-900/80 flex items-center justify-center text-slate-500 hover:text-white hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 transition-all border border-white/5 group">
-              <Facebook size={14} className="group-hover:scale-110 transition-transform" />
-            </a>
-          </div>
-
-          {/* Right - Copyright */}
-          <p className="text-slate-500 text-xs sm:text-sm font-medium tracking-wide">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">Hema Rajpoot</span> &copy; {new Date().getFullYear()}
-          </p>
-        </div>
-      </footer>
 
       {/* Lightbox */}
       {lightboxItem && (
