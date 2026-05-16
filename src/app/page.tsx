@@ -61,7 +61,7 @@ export default function HomePage() {
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-fuchsia-500 via-pink-500 to-amber-500" />
             <h3 className="text-3xl font-bold text-white mb-4">Ready to start a project?</h3>
             <p className="text-slate-300 mb-8 max-w-xl mx-auto">Send me an email with your requirements, reference photos, and preferred timeline, and let's create a fable together.</p>
-            <a href="mailto:hema.r.rajpoot@gmail.com?subject=Commission%20Request%20-%20The%20Canvas%20Fable" target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold py-4 px-10 rounded-2xl hover:from-fuchsia-500 hover:to-pink-500 transition-all transform active:scale-95 shadow-lg shadow-pink-500/25 border border-pink-400/50">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hema.r.rajpoot@gmail.com&su=Commission%20Request%20-%20The%20Canvas%20Fable" target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold py-4 px-10 rounded-2xl hover:from-fuchsia-500 hover:to-pink-500 transition-all transform active:scale-95 shadow-lg shadow-pink-500/25 border border-pink-400/50">
               Request a Commission
             </a>
           </div>
@@ -272,7 +272,7 @@ export default function HomePage() {
             </div>
 
             <div className="space-y-4 w-full">
-              <a href="mailto:hema.r.rajpoot@gmail.com" className="flex items-center gap-3 text-slate-400 hover:text-white transition-all p-3 rounded-2xl hover:bg-white/5 border border-transparent hover:border-fuchsia-500/30 group overflow-hidden">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hema.r.rajpoot@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-400 hover:text-white transition-all p-3 rounded-2xl hover:bg-white/5 border border-transparent hover:border-fuchsia-500/30 group overflow-hidden">
                 <div className="bg-slate-900/80 p-2.5 rounded-xl group-hover:bg-gradient-to-br group-hover:from-fuchsia-600 group-hover:to-pink-600 group-hover:text-white transition-all shadow-inner border border-white/5 shrink-0">
                   <Mail size={20} />
                 </div>
