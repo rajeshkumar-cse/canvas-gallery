@@ -60,7 +60,7 @@ export default function HomePage() {
           <div className="mt-12 p-10 bg-gradient-to-br from-slate-900/80 to-fuchsia-950/40 backdrop-blur-md rounded-3xl border border-white/10 text-center shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-fuchsia-500 via-pink-500 to-amber-500" />
             <h3 className="text-3xl font-bold text-white mb-4">Ready to start a project?</h3>
-            <p className="text-slate-300 mb-8 max-w-xl mx-auto">Send me an email with your requirements, reference photos, and preferred timeline, and let's create a fable together.</p>
+            <p className="text-slate-300 mb-8 max-w-xl mx-auto">Send me an email with your requirements, reference photos, and preferred timeline, and let&apos;s create a fable together.</p>
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hema.r.rajpoot@gmail.com&su=Commission%20Request%20-%20The%20Canvas%20Fable" target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white font-bold py-4 px-10 rounded-2xl hover:from-fuchsia-500 hover:to-pink-500 transition-all transform active:scale-95 shadow-lg shadow-pink-500/25 border border-pink-400/50">
               Request a Commission
             </a>
@@ -267,7 +267,7 @@ export default function HomePage() {
                 From Electronics Engineer and IT Quality Auditor to versatile visual artist. I specialize in bringing imagination to life through <strong className="text-amber-200 font-bold">oil paintings</strong>, <strong className="text-pink-300 font-bold">acrylics</strong>, <strong className="text-slate-200 font-bold">charcoal</strong>, <strong className="text-slate-200 font-bold">sketching</strong>, and <strong className="text-cyan-300 font-bold">watercolor</strong>. 
               </p>
               <p className="text-slate-300 leading-loose text-base lg:text-lg text-center md:text-left italic text-slate-400 border-l-2 border-fuchsia-500/50 pl-4 py-1">
-                "Every stroke tells a story, and every canvas holds a fable waiting to be discovered."
+                &quot;Every stroke tells a story, and every canvas holds a fable waiting to be discovered.&quot;
               </p>
             </div>
 
